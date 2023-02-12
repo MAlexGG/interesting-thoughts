@@ -1,24 +1,23 @@
 @extends('layouts.app')
 
 @section('content')
-    <form action="{{ route('store') }}" method="POST" enctype="multipart/form-data">
+    <form class="m-5" action="{{ route('store') }}" method="POST" enctype="multipart/form-data">
         @csrf
-        <div>
-            <label for="thought">Thought</label>
-            <input type="text" name="thought" id="thought">
+        <div class="mb-3">
+            <label for="author" class="form-label">Author</label>
+            <input type="text" class="form-control" name="author" id="author">
         </div>
-        <div>
-            <label for="author">Author</label>
-            <input type="text" name="author" id="author">
+        <div class="mb-3">
+            <label for="thought" class="form-label">Thought</label>
+            <textarea class="form-control" name="thought" id="thought" rows="3"></textarea>
         </div>
-        <div>
-            <label for="image">Image</label>
-            <input type="text" name="image" id="image">
+        <div class="mb-3">
+            <label for="image" class="form-label">Image</label>
+            <input type="text" class="form-control" name="image" id="image">
         </div>
-        <div>
-            <button type="submit">Create</button>
-            <a href="{{ route('home') }}"><button type="button">Cancel</button></a>
+        <div class="col-12">
+            <button class="btn btn-primary" type="submit">Create</button>
+            <a href="{{ route('home') }}"><button class="btn btn-secondary" type="button">Cancel</button></a>
         </div>
-
     </form>
 @endsection
