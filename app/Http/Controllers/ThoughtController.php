@@ -96,6 +96,8 @@ class ThoughtController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $thought = Thought::find($id);
+        $thought->delete();
+        return redirect()->route('home');
     }
 }

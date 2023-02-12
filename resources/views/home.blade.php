@@ -11,7 +11,12 @@
                 <img src="{{ $thought->image }}" alt="{{ $thought->author }} thougth">
                 <a href="{{ route('show', ['id' => $thought->id]) }}"><button>See</button></a>
                 <a href="{{ route('edit', ['id' => $thought->id]) }}"><button>Edit</button></a>
-                {{-- <a href="{{route('delete', ['id' => $thought->id ])}}"><button>Delete</button></a> --}}
+                <form action="{{ route('delete', ['id' => $thought->id]) }}" method="POST">
+                    @method('delete')
+                    @csrf
+                    <button>Delete</button>
+
+                </form>
             @endforeach
         @else
             <h2>There is no thoughts</h2>

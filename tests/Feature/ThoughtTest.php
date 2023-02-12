@@ -65,4 +65,20 @@ class ThoughtTest extends TestCase
         $this->assertEquals($response->author, 'new author');
         $this->assertEquals($response->image, 'new image');
     }
+
+    public function test_thought_can_be_deleted()
+    {
+        $this->withoutExceptionHandling();
+
+        $this->post(route('store'), [
+            'thought' => 'thought',
+            'author' => 'author',
+            'image' => 'image'
+        ]);
+
+        $thought = Thought::first();
+
+        $this->delete(route('delete', $thought->id));
+        $this->assertCount(0, Thought::all());
+    }
 }
