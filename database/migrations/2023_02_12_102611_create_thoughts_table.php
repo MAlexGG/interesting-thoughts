@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('thoughts', function (Blueprint $table) {
             $table->id();
-            $table->string('thought');
+            $table->string('thought', 500);
             $table->string('author');
             $table->string('image');
             $table->timestamps();

@@ -17,8 +17,8 @@
             <input type="text" class="form-control" name="image" id="image" value="{{ $thought->image }}">
         </div>
         <div class="col-12">
-            <button class="btn btn-primary" type="submit">Edit</button>
-            <a href="{{ route('home') }}"><button class="btn btn-secondary" type="button">Cancel</button></a>
+            <button class="btn btn-secondary" type="submit">Edit</button>
+            <a href="{{ route('home') }}"><button class="btn btn-outline-secondary" type="button">Cancel</button></a>
         </div>
     </form>
 @endsection

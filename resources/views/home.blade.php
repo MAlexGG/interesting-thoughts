@@ -8,7 +8,7 @@
                     <div class="ct-thought-img">
                         <img class="img-thought" src="{{ $thought->image }}" alt="{{ $thought->author }} thougth">
                     </div>
-                    <p class="txt-thought">{{ $thought->thought }}</p>
+                    <p class="txt-thought">{{ Str::limit($thought->thought, 140, ' (...)') }}</p>
                     <p class="txt-author">{{ $thought->author }}</p>
                     <div class="ct-tought-bt">
                         <a href="{{ route('show', ['id' => $thought->id]) }}"><button
