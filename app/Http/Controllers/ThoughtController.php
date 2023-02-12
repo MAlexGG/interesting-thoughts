@@ -36,13 +36,13 @@ class ThoughtController extends Controller
      */
     public function store(Request $request)
     {
-        $thoughts = Thought::create([
+        $thought = Thought::create([
             'thought' => $request->thought,
             'author' => $request->author,
             'image' => $request->image
         ]);
 
-        $thoughts->save();
+        $thought->save();
         return redirect()->route('home');
     }
 
@@ -79,7 +79,13 @@ class ThoughtController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $thought = Thought::find($id);
+        $thought->update([
+            'thought' => $request->thought,
+            'author' => $request->author,
+            'image' => $request->image
+        ]);
+        return redirect()->route('show', $id);
     }
 
     /**

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <form {{-- action="{{ route('update') }}" --}} method="POST" enctype="multipart/form-data">
+    <form action="{{ route('update', ['id' => $thought->id]) }}" method="POST" enctype="multipart/form-data">
         @method('put')
         @csrf
         <div>

@@ -20,3 +20,4 @@ Route::get('/thoughts/create', [ThoughtController::class, 'create'])->name('crea
 Route::post('/thoughts/store', [ThoughtController::class, 'store'])->name('store');
 Route::get('/thoughts/{id}', [ThoughtController::class, 'show'])->name('show');
 Route::get('/thoughts/{id}/edit', [ThoughtController::class, 'edit'])->name('edit');
+Route::put('/thoughts/{id}', [ThoughtController::class, 'update'])->name('update');
