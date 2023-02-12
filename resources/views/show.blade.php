@@ -1,7 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-    <p>{{ $thought->thought }}</p>
-    <p>{{ $thought->author }}</p>
-    <img src="{{ $thought->image }}" alt="{{ $thought->thought }} thought">
+    <div class="ct-show">
+        <div class="ct-show-img">
+            <img class="img-show" src="{{ $thought->image }}" alt="{{ $thought->thought }} thought">
+        </div>
+        <div class="ct-show-txt">
+            <p>{{ $thought->thought }}</p>
+            <p class="text-danger">{{ $thought->author }}</p>
+        </div>
+    </div>
 @endsection

@@ -1,4 +1,5 @@
 @import './thoughts.css';
+@import './thought.css';
 * {
     font-family: 'Quicksand', sans-serif;
 }
