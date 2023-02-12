@@ -1,0 +1,56 @@
+.ct-thoughts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+    align-items: flex-start;
+    margin: 3%;
+}
+
+.ct-thought {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    width: 320px;
+    height: 420px;
+    position: relative;
+    margin: 1%;
+    background-color: whitesmoke;
+}
+
+.ct-thought-img {
+    width: 320px;
+    height: 320px;
+    overflow: hidden;
+}
+
+.img-thought {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    filter: brightness(0.4);
+}
+
+.txt-thought {
+    position: absolute;
+    top: 5%;
+    color: white;
+    font-weight: 500;
+    font-size: 1.5rem;
+    padding: 5%;
+    text-align: center;
+}
+
+.txt-author {
+    font-weight: 300;
+    font-size: 1.5rem;
+}
+
+.ct-tought-bt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 1%;
+}

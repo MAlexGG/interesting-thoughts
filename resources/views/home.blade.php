@@ -1,22 +1,27 @@
 @extends('layouts.app')
 
 @section('content')
-    <div>
-        <h2>Aquí va la página principal</h2>
-
+    <div class="ct-thoughts">
         @if (count($thoughts) >= 1)
             @foreach ($thoughts as $thought)
-                <p>{{ $thought->thought }}</p>
-                <p>{{ $thought->author }}</p>
-                <img src="{{ $thought->image }}" alt="{{ $thought->author }} thougth">
-                <a href="{{ route('show', ['id' => $thought->id]) }}"><button>See</button></a>
-                <a href="{{ route('edit', ['id' => $thought->id]) }}"><button>Edit</button></a>
-                <form action="{{ route('delete', ['id' => $thought->id]) }}" method="POST">
-                    @method('delete')
-                    @csrf
-                    <button>Delete</button>
-
-                </form>
+                <div class="ct-thought">
+                    <div class="ct-thought-img">
+                        <img class="img-thought" src="{{ $thought->image }}" alt="{{ $thought->author }} thougth">
+                    </div>
+                    <p class="txt-thought">{{ $thought->thought }}</p>
+                    <p class="txt-author">{{ $thought->author }}</p>
+                    <div class="ct-tought-bt">
+                        <a href="{{ route('show', ['id' => $thought->id]) }}"><button
+                                class="btn btn-outline-secondary">See</button></a>
+                        <a href="{{ route('edit', ['id' => $thought->id]) }}"><button
+                                class="btn btn-outline-secondary">Edit</button></a>
+                        <form action="{{ route('delete', ['id' => $thought->id]) }}" method="POST">
+                            @method('delete')
+                            @csrf
+                            <button class="btn btn-outline-danger">Delete</button>
+                        </form>
+                    </div>
+                </div>
             @endforeach
         @else
             <h2>There is no thoughts</h2>
