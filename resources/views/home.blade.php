@@ -10,8 +10,8 @@
                 <p>{{ $thought->author }}</p>
                 <img src="{{ $thought->image }}" alt="{{ $thought->author }} thougth">
                 <a href="{{ route('show', ['id' => $thought->id]) }}"><button>See</button></a>
-                {{-- <a href="{{route('edit', ['id' => $thought->id ])}}"><button>Edit</button></a>
-                <a href="{{route('delete', ['id' => $thought->id ])}}"><button>Delete</button></a> --}}
+                <a href="{{ route('edit', ['id' => $thought->id]) }}"><button>Edit</button></a>
+                {{-- <a href="{{route('delete', ['id' => $thought->id ])}}"><button>Delete</button></a> --}}
             @endforeach
         @else
             <h2>There is no thoughts</h2>

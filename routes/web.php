@@ -19,3 +19,4 @@ Route::get('/', [ThoughtController::class, 'index'])->name('home');
 Route::get('/thoughts/create', [ThoughtController::class, 'create'])->name('create');
 Route::post('/thoughts/store', [ThoughtController::class, 'store'])->name('store');
 Route::get('/thoughts/{id}', [ThoughtController::class, 'show'])->name('show');
+Route::get('/thoughts/{id}/edit', [ThoughtController::class, 'edit'])->name('edit');

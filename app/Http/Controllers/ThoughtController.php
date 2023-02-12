@@ -66,7 +66,8 @@ class ThoughtController extends Controller
      */
     public function edit($id)
     {
-        //
+        $thought = Thought::find($id);
+        return view('edit', compact('thought'));
     }
 
     /**
