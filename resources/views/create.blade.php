@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <form class="m-5" action="{{ route('store') }}" method="POST" enctype="multipart/form-data">
+    <form class="m-5 w-75" action="{{ route('store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
             <label for="author" class="form-label">Author</label>
