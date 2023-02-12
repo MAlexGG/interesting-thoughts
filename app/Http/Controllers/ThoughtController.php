@@ -54,7 +54,8 @@ class ThoughtController extends Controller
      */
     public function show($id)
     {
-        //
+        $thought = Thought::find($id);
+        return view('show', compact('thought'));
     }
 
     /**
