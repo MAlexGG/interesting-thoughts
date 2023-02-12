@@ -16,3 +16,5 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [ThoughtController::class, 'index'])->name('home');
+Route::get('/thoughts/create', [ThoughtController::class, 'create'])->name('create');
+Route::post('/thoughts/store', [ThoughtController::class, 'store'])->name('store');

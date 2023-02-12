@@ -3,7 +3,6 @@
 namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class ThoughtTest extends TestCase
@@ -18,7 +17,17 @@ class ThoughtTest extends TestCase
 
     public function test_thoughts_can_be_listed()
     {
+        $this->withoutExceptionHandling();
+
         $response = $this->get('/');
-        $response->assertStatus(200);
+        $response->assertStatus(200)
+            ->assertViewIs('home');
     }
+
+    /* public function test_thought_can_be_created()
+    {
+        $this->withoutExceptionHandling();
+        
+        $thought = Thought::
+    } */
 }

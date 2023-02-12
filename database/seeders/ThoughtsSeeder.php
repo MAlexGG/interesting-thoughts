@@ -18,7 +18,7 @@ class ThoughtsSeeder extends Seeder
         DB::table('thoughts')->insert([
             'thought' => 'Si he visto más lejos es porque he subido a hombros de gigantes',
             'author' => 'Isaac Newton',
-            'image' => 'http://www.cuartaedad.com/docs/A-hombros-de-gigantes.jpg',
+            'image' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Library_of_Congress%2C_Rosenwald_4%2C_Bl._5r.jpg/709px-Library_of_Congress%2C_Rosenwald_4%2C_Bl._5r.jpg',
             'created_at' => '2023/02/12'
         ]);
 

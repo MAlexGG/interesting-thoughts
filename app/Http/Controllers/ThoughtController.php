@@ -25,7 +25,7 @@ class ThoughtController extends Controller
      */
     public function create()
     {
-        //
+        return view('create');
     }
 
     /**
@@ -36,7 +36,14 @@ class ThoughtController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $thoughts = Thought::create([
+            'thought' => $request->thought,
+            'author' => $request->author,
+            'image' => $request->image
+        ]);
+
+        $thoughts->save();
+        return redirect()->route('home');
     }
 
     /**
