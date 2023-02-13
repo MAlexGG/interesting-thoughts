@@ -15,7 +15,7 @@ class ThoughtController extends Controller
     public function index()
     {
         $thoughts = Thought::all();
-        return view('home', compact('thoughts'));
+        return view('/thoughts/home', compact('thoughts'));
     }
 
     /**
@@ -25,7 +25,7 @@ class ThoughtController extends Controller
      */
     public function create()
     {
-        return view('create');
+        return view('/thoughts/create');
     }
 
     /**
@@ -55,7 +55,7 @@ class ThoughtController extends Controller
     public function show($id)
     {
         $thought = Thought::find($id);
-        return view('show', compact('thought'));
+        return view('/thoughts/show', compact('thought'));
     }
 
     /**
@@ -67,7 +67,7 @@ class ThoughtController extends Controller
     public function edit($id)
     {
         $thought = Thought::find($id);
-        return view('edit', compact('thought'));
+        return view('/thoughts/edit', compact('thought'));
     }
 
     /**

@@ -1,7 +1,9 @@
 <?php
 
-use App\Http\Controllers\ThoughtController;
+use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ThoughtController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +24,7 @@ Route::get('/thoughts/{id}', [ThoughtController::class, 'show'])->name('show');
 Route::get('/thoughts/{id}/edit', [ThoughtController::class, 'edit'])->name('edit');
 Route::put('/thoughts/{id}', [ThoughtController::class, 'update'])->name('update');
 Route::delete('/thoughts/{id}', [ThoughtController::class, 'destroy'])->name('delete');
+
+Auth::routes();
+
+Route::get('/home', [HomeController::class, 'index'])->name('home');

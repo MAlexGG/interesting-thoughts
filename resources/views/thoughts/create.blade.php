@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.thoughts')
 
 @section('content')
     <form class="m-5 w-75 needs-validation" action="{{ route('store') }}" method="POST" enctype="multipart/form-data"
