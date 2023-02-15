@@ -28,11 +28,3 @@ Route::delete('/thoughts/{id}', [ThoughtController::class, 'destroy'])->name('de
 
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-
-Route::get('/login', function () {
-    return view('/auth/login');
-})->name('login');
-
-Route::get('/signup', function () {
-    return view('/auth/register');
-})->name('register');
