@@ -20,6 +20,15 @@
     background-color: whitesmoke;
 }
 
+.ct-thought a {
+    text-decoration: none;
+    color: black;
+}
+
+.ct-thought a:hover {
+    color: gray;
+}
+
 .ct-thought-img {
     width: 320px;
     height: 320px;

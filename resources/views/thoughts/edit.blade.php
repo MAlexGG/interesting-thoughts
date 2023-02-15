@@ -1,4 +1,4 @@
-@extends('layouts.thoughts')
+@extends('layouts.app')
 
 @section('content')
     <form class="m-5 w-75 needs-validation" action="{{ route('update', ['id' => $thought->id]) }}" method="POST"
