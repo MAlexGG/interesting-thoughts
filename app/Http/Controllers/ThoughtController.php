@@ -44,7 +44,7 @@ class ThoughtController extends Controller
         ]);
 
         $thought->save();
-        return redirect()->route('home');
+        return redirect()->route('show', $thought->id);
     }
 
     /**
@@ -99,6 +99,6 @@ class ThoughtController extends Controller
     {
         $thought = Thought::find($id);
         $thought->delete();
-        return redirect()->route('home');
+        return redirect()->route('thoughts');
     }
 }
