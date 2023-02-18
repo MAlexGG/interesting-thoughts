@@ -19,4 +19,10 @@ class Thought extends Model
         'created_at',
         'updated_at',
     ];
+
+    static function searchByAuthor($request)
+    {
+        $thought = Thought::where('author', 'like', $request->input('search') . '%')->get();
+        return $thought;
+    }
 }

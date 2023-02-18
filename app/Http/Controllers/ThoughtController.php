@@ -101,4 +101,10 @@ class ThoughtController extends Controller
         $thought->delete();
         return redirect()->route('thoughts');
     }
+
+    public function searchByAuthor(Request $request)
+    {
+        $thoughts = Thought::searchByAuthor($request);
+        return view('/thoughts/search', compact('thoughts'));
+    }
 }

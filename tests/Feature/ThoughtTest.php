@@ -22,7 +22,7 @@ class ThoughtTest extends TestCase
 
         $response = $this->get('/');
         $response->assertStatus(200)
-            ->assertViewIs('home');
+            ->assertViewIs('.thoughts.home');
     }
 
     public function test_thought_can_be_created()
