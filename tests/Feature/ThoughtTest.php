@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Models\Thought;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -29,6 +30,9 @@ class ThoughtTest extends TestCase
     {
         $this->withoutExceptionHandling();
 
+        $user = User::factory()->create();
+        $this->actingAs($user);
+
         $this->post(route('store'), [
             'thought' => 'new thought',
             'author' => 'new author',
@@ -45,6 +49,9 @@ class ThoughtTest extends TestCase
     public function test_thought_can_be_updated()
     {
         $this->withoutExceptionHandling();
+
+        $user = User::factory()->create();
+        $this->actingAs($user);
 
         $this->post(route('store'), [
             'thought' => 'thought',
@@ -70,6 +77,9 @@ class ThoughtTest extends TestCase
     {
         $this->withoutExceptionHandling();
 
+        $user = User::factory()->create();
+        $this->actingAs($user);
+
         $this->post(route('store'), [
             'thought' => 'thought',
             'author' => 'author',
@@ -81,4 +91,32 @@ class ThoughtTest extends TestCase
         $this->delete(route('delete', $thought->id));
         $this->assertCount(0, Thought::all());
     }
+
+    /* public function test_can_search_by_author()
+    {
+        $this->withoutExceptionHandling();
+
+        $user = User::factory()->create();
+        $this->actingAs($user);
+
+        $this->post(route('store'), [
+            'thought' => 'new thought',
+            'author' => 'Alex',
+            'image' => 'new image'
+        ]);
+
+        $this->post(route('store'), [
+            'thought' => 'new thought',
+            'author' => 'Laura',
+            'image' => 'new image'
+        ]);
+
+        $response = $this->get(route('search', [
+            'thought' => 'new thought',
+            'author' => 'Alex',
+            'image' => 'new image'
+        ]));
+
+        $this->assertEquals($response->author, 'Alex');
+    } */
 }

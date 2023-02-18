@@ -16,10 +16,10 @@ class ThoughtFactory extends Factory
      */
     public function definition()
     {
-        /* return [
-            'thought' => ,
-            'author' => ,
-            'image' => 
-        ]; */
+        return [
+            'thought' => fake()->text(200),
+            'author' => fake()->name(),
+            'image' => fake()->image()
+        ];
     }
 }
