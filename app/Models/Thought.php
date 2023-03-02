@@ -20,6 +20,12 @@ class Thought extends Model
         'updated_at',
     ];
 
+    static function orderByDesc()
+    {
+        $thoughts = Thought::orderBy('id', 'DESC')->get();
+        return $thoughts;
+    }
+
     static function searchByAuthor($request)
     {
         $thought = Thought::where('author', 'like', $request->input('search') . '%')->get();

@@ -15,7 +15,7 @@ class ThoughtController extends Controller
      */
     public function index()
     {
-        $thoughts = Thought::all();
+        $thoughts = Thought::orderByDesc();
         return view('/thoughts/home', compact('thoughts'));
     }
 
