@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Thought;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ThoughtController extends Controller
 {
@@ -37,10 +38,12 @@ class ThoughtController extends Controller
      */
     public function store(Request $request)
     {
+        $user = Auth::user();
         $thought = Thought::create([
             'thought' => $request->thought,
             'author' => $request->author,
-            'image' => $request->image
+            'image' => $request->image,
+            'user_id' => $user->id
         ]);
 
         $thought->save();
@@ -80,12 +83,16 @@ class ThoughtController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $user = Auth::user();
         $thought = Thought::find($id);
-        $thought->update([
-            'thought' => $request->thought,
-            'author' => $request->author,
-            'image' => $request->image
-        ]);
+        if ($user->id == $thought->user_id) {
+            $thought->update([
+                'thought' => $request->thought,
+                'author' => $request->author,
+                'image' => $request->image
+            ]);
+        }
+
         return redirect()->route('show', $id);
     }
 
@@ -97,8 +104,12 @@ class ThoughtController extends Controller
      */
     public function destroy($id)
     {
+        $user = Auth::user();
         $thought = Thought::find($id);
-        $thought->delete();
+        if ($user->id == $thought->user_id) {
+            $thought->delete();
+        }
+
         return redirect()->route('thoughts');
     }
 

@@ -12,7 +12,7 @@
                     <a href="{{ route('show', ['id' => $thought->id]) }}">
                         <p class="txt-author">{{ $thought->author }}</p>
                     </a>
-                    @if (Auth::user())
+                    @if (Auth::user() && Auth::user()->id == $thought->user_id)
                         <div class="ct-tought-bt">
                             <a href="{{ route('edit', ['id' => $thought->id]) }}"><button
                                     class="btn btn-outline-secondary">Edit</button></a>
