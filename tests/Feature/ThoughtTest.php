@@ -92,31 +92,24 @@ class ThoughtTest extends TestCase
         $this->assertCount(0, Thought::all());
     }
 
-    /* public function test_can_search_by_author()
+    public function test_can_search_by_author()
     {
         $this->withoutExceptionHandling();
 
         $user = User::factory()->create();
         $this->actingAs($user);
 
-        $this->post(route('store'), [
-            'thought' => 'new thought',
-            'author' => 'Alex',
-            'image' => 'new image'
+        $thought1 = Thought::factory()->create([
+            'author' => 'Alex'
         ]);
 
-        $this->post(route('store'), [
-            'thought' => 'new thought',
-            'author' => 'Laura',
-            'image' => 'new image'
+        $thought2 = Thought::factory()->create([
+            'author' => 'Laura'
         ]);
 
-        $response = $this->get(route('search', [
-            'thought' => 'new thought',
-            'author' => 'Alex',
-            'image' => 'new image'
-        ]));
+        $thoughts = Thought::searchByAuthor($thought1->author);
 
-        $this->assertEquals($response->author, 'Alex');
-    } */
+        $this->assertEquals($thoughts->count(), 1);
+        $this->assertEquals($thoughts[0]->author, 'Alex');
+    }
 }

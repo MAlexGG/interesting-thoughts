@@ -32,9 +32,9 @@ class Thought extends Model
         return $thoughts;
     }
 
-    static function searchByAuthor($request)
+    static function searchByAuthor($search)
     {
-        $thought = Thought::where('author', 'like', $request->input('search') . '%')->orderBy('id', 'DESC')->get();
+        $thought = Thought::where('author', 'like', $search . '%')->orderBy('id', 'DESC')->get();
         return $thought;
     }
 }

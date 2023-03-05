@@ -115,7 +115,7 @@ class ThoughtController extends Controller
 
     public function searchByAuthor(Request $request)
     {
-        $thoughts = Thought::searchByAuthor($request);
+        $thoughts = Thought::searchByAuthor($request->search);
         return view('/thoughts/search', compact('thoughts'));
     }
 }
