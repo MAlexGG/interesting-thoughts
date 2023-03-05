@@ -10,7 +10,7 @@
                     </div>
                     <p class="txt-thought">{{ Str::limit($thought->thought, 140, ' (...)') }}</p>
                     <a href="{{ route('show', ['id' => $thought->id]) }}">
-                        <p class="txt-author">{{ $thought->author }}</p>
+                        <p class="txt-author">{{ Str::limit($thought->author, 20, ' (...)') }}</p>
                     </a>
                     @if (Auth::user() && Auth::user()->id == $thought->user_id)
                         <div class="ct-tought-bt">
