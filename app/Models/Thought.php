@@ -13,12 +13,18 @@ class Thought extends Model
         'thought',
         'author',
         'image',
+        'user_id'
     ];
 
     protected $hidden = [
         'created_at',
         'updated_at',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
 
     static function orderByDesc()
     {

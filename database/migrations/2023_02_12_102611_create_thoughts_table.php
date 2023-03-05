@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('thought', 500);
             $table->string('author');
             $table->string('image');
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
             $table->timestamps();
         });
     }
