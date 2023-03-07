@@ -23,6 +23,17 @@
                             </form>
                         </div>
                     @endif
+
+                    @if (!Auth::user())
+                        <a href="{{ route('login') }}">fav</a>
+                    @elseif (Auth::user() && $thought->favorites->contains('user_id', Auth::user()->id))
+                        <button type="text" disabled>favorite</button>
+                    @else
+                        <form action="/thoughts/{{ $thought->id }}/favorites" method="POST">
+                            @csrf
+                            <button type="submit">favorite</button>
+                        </form>
+                    @endif
                 </div>
             @endforeach
         @else

@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\FavoriteController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ThoughtController;
@@ -27,3 +27,6 @@ Route::get('/thoughts/{id}', [ThoughtController::class, 'show'])->name('show');
 Route::get('/thoughts/{id}/edit', [ThoughtController::class, 'edit'])->name('edit')->middleware('auth');
 Route::put('/thoughts/{id}', [ThoughtController::class, 'update'])->name('update')->middleware('auth');
 Route::delete('/thoughts/{id}', [ThoughtController::class, 'destroy'])->name('delete')->middleware('auth');
+
+
+Route::post('/thoughts/{thought}/favorites', [FavoriteController::class, 'store'])->name('favorites');
