@@ -30,3 +30,4 @@ Route::delete('/thoughts/{id}', [ThoughtController::class, 'destroy'])->name('de
 
 
 Route::post('/thoughts/{thought}/favorites', [FavoriteController::class, 'store'])->name('favorites');
+Route::delete('/thoughts/{thought}/favorites', [FavoriteController::class, 'destroy'])->name('notFavorites');

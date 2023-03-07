@@ -18,4 +18,13 @@ class FavoriteController extends Controller
 
         return redirect()->route('thoughts');
     }
+
+    public function destroy(Thought $thought)
+    {
+        $favorite = Favorite::findFavoriteByUser($thought);
+        $notFavorite = Favorite::find($favorite->id);
+        $notFavorite->delete();
+
+        return redirect()->route('thoughts');
+    }
 }

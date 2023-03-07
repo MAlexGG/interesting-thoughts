@@ -27,18 +27,25 @@
                         @endif
 
                         @if (!Auth::user())
-                            <a href="{{ route('login') }}"><button class="btn btn-outline-danger"><img
-                                        src="{{ asset('img/heart_stroke.svg') }}" alt="not-favorite"
-                                        class='img-favorite'></button></a>
+                            <a href="{{ route('login') }}">
+                                <button class="btn btn-outline-danger">
+                                    <img src="{{ asset('img/heart_stroke.svg') }}" alt="not-favorite" class='img-favorite'>
+                                </button>
+                            </a>
                         @elseif (Auth::user() && $thought->favorites->contains('user_id', Auth::user()->id))
-                            <button type="text" disabled class="btn btn-outline-danger"><img
-                                    src="{{ asset('img/heart.svg') }}" alt="favorite" class='img-favorite'></button>
+                            <form action="/thoughts/{{ $thought->id }}/favorites" method="POST">
+                                @method('delete')
+                                @csrf
+                                <button type="submit" class="btn btn-outline-danger">
+                                    <img src="{{ asset('img/heart.svg') }}" alt="favorite" class='img-favorite'>
+                                </button>
+                            </form>
                         @else
                             <form action="/thoughts/{{ $thought->id }}/favorites" method="POST">
                                 @csrf
-                                <button type="submit" class="btn btn-outline-danger"><img
-                                        src="{{ asset('img/heart_stroke.svg') }}" alt="not-favorite"
-                                        class='img-favorite'></button>
+                                <button type="submit" class="btn btn-outline-danger">
+                                    <img src="{{ asset('img/heart_stroke.svg') }}" alt="not-favorite" class='img-favorite'>
+                                </button>
                             </form>
                         @endif
                     </div>
