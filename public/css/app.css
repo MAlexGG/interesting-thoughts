@@ -8,3 +8,7 @@ main {
     display: flex;
     justify-content: center;
 }
+
+:root {
+    --color-red: #DC3545;
+}

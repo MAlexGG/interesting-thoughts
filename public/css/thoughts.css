@@ -66,6 +66,12 @@
     gap: 1%;
 }
 
+.img-favorite {
+    width: 20px;
+    height: auto;
+    filter: invert(31%) sepia(99%) saturate(1160%) hue-rotate(325deg) brightness(87%) contrast(101%);
+}
+
 @media (max-width: 1475px) {
     .ct-thoughts {
         max-width: 1022px;
