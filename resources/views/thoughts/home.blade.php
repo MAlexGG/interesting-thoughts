@@ -6,7 +6,8 @@
             @foreach ($thoughts as $thought)
                 <div class="ct-thought">
                     <div class="ct-thought-img">
-                        <img class="img-thought" src="storage/{{ $thought->image }}" alt="{{ $thought->author }} thougth">
+                        <img class="img-thought" src="{{ asset('storage/' . $thought->image) }}"
+                            alt="{{ $thought->author }} thougth">
                     </div>
                     <p class="txt-thought">{{ Str::limit($thought->thought, 140, ' (...)') }}</p>
                     <a href="{{ route('show', ['id' => $thought->id]) }}">
