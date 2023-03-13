@@ -17,7 +17,7 @@
         </div>
         <div class="mb-3">
             <label for="image" class="form-label">Image</label>
-            <input type="text" class="form-control" name="image" id="image" value="{{ $thought->image }}" required>
+            <input type="file" class="form-control" name="image" id="image">
             <div class="invalid-feedback">Please add an image.</div>
         </div>
         <div class="col-12">

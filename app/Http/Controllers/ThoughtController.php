@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Thought;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 
 class ThoughtController extends Controller
 {
@@ -89,11 +90,24 @@ class ThoughtController extends Controller
     {
         $user = Auth::user();
         $thought = Thought::find($id);
+
+        $destination = public_path("storage\\" . $thought->image);
+        $filename = '';
+
+        if ($request->hasFile('image')) {
+            if (File::exists($destination)) {
+                File::delete($destination);
+            }
+            $filename = $request->file('image')->store('img', 'public');
+        } else {
+            $filename = $thought->image;
+        }
+
         if ($user->id == $thought->user_id) {
             $thought->update([
                 'thought' => $request->thought,
                 'author' => $request->author,
-                'image' => $request->image
+                'image' => $filename
             ]);
         }
 
