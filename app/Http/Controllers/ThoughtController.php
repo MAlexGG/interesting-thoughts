@@ -124,8 +124,11 @@ class ThoughtController extends Controller
     {
         $user = Auth::user();
         $thought = Thought::find($id);
+        $destination = public_path("storage\\" . $thought->image);
+
         if ($user->id == $thought->user_id) {
             $thought->delete();
+            File::delete($destination);
         }
 
         return redirect()->route('thoughts');
