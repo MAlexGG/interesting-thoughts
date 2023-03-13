@@ -46,6 +46,10 @@ class ThoughtController extends Controller
             'user_id' => $user->id
         ]);
 
+        if ($request->hasFile('image')) {
+            $thought['image'] = $request->file('image')->store('img', 'public');
+        }
+
         $thought->save();
         return redirect()->route('show', $thought->id);
     }
