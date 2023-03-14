@@ -15,8 +15,9 @@ return new class extends Migration
     {
         Schema::create('favorites', function (Blueprint $table) {
             $table->id();
-            $table->integer('thought_id');
-            $table->integer('user_id');
+            $table->unsignedBigInteger('thought_id');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('thought_id')->references('id')->on('thoughts')->onDelete('cascade');
             $table->timestamps();
         });
     }
