@@ -52,7 +52,7 @@ class ThoughtController extends Controller
         }
 
         $thought->save();
-        return redirect()->route('show', $thought->id);
+        return redirect()->route('show', $thought->id)->with(['message' => 'The thought has been created successfully']);
     }
 
     /**
@@ -111,7 +111,7 @@ class ThoughtController extends Controller
             ]);
         }
 
-        return redirect()->route('show', $id);
+        return redirect()->route('show', $id)->with(['message' => 'The thought has been edited successfully']);
     }
 
     /**
@@ -131,7 +131,7 @@ class ThoughtController extends Controller
             File::delete($destination);
         }
 
-        return redirect()->route('thoughts');
+        return redirect()->route('thoughts')->with(['message' => 'The thought has been deleted successfully']);
     }
 
     public function searchByAuthor(Request $request)
