@@ -12,3 +12,29 @@ main {
 :root {
     --color-red: #DC3545;
 }
+
+.form-edit,
+.form-create {
+    margin-top: 7%;
+}
+
+@media (max-width: 1475px) {
+    .form-edit,
+    .form-create {
+        margin-top: 5%;
+    }
+}
+
+@media (max-width: 1085px) {
+    .form-edit,
+    .form-create {
+        margin-top: 10%;
+    }
+}
+
+@media (max-width: 710px) {
+    .form-edit,
+    .form-create {
+        margin-top: 30%;
+    }
+}

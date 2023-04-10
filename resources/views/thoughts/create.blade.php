@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <form class="m-5 w-75 needs-validation" action="{{ route('store') }}" method="POST" enctype="multipart/form-data"
+    <form class="form-create w-75 needs-validation" action="{{ route('store') }}" method="POST" enctype="multipart/form-data"
         novalidate>
         @csrf
         <div class="mb-3">

@@ -1,10 +1,17 @@
+.ct-message {
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    top: 7%;
+}
+
 .ct-thoughts {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
     align-content: flex-start;
     align-items: flex-start;
-    margin: 3%;
+    margin-top: 7%;
     max-width: 1400px;
     width: 100%;
 }
@@ -75,17 +82,20 @@
 @media (max-width: 1475px) {
     .ct-thoughts {
         max-width: 1022px;
+        margin-top: 5%;
     }
 }
 
 @media (max-width: 1085px) {
     .ct-thoughts {
         max-width: 667px;
+        margin-top: 10%;
     }
 }
 
 @media (max-width: 710px) {
     .ct-thoughts {
         justify-content: center;
+        margin-top: 30%;
     }
 }
