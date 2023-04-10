@@ -39,6 +39,12 @@ class ThoughtController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'thought' => 'required|max:500',
+            'author' => 'required|max:255',
+            'image' => 'required|image'
+        ]);
+
         $user = Auth::user();
         $thought = Thought::create([
             'thought' => $request->thought,
@@ -88,6 +94,12 @@ class ThoughtController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'thought' => 'required|max:500',
+            'author' => 'required|max:255',
+            'image' => 'image'
+        ]);
+
         $user = Auth::user();
         $thought = Thought::find($id);
 
