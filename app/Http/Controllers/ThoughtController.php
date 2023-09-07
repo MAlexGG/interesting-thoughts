@@ -155,7 +155,9 @@ class ThoughtController extends Controller
 
     public function getFavorites()
     {
+        $user = Auth::user();
         $thoughts = Thought::with('favorites')->get();
+
         return view('/thoughts/favorites', compact('thoughts'));
     }
 

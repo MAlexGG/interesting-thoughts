@@ -48,7 +48,6 @@ class User extends Authenticatable
         return $this->hasMany(Thought::class);
     }
 
-    //Relación de Favoritos???
     public function favorites(){
         return $this->belongsToMany(Thought::class, 'thought_user');
     }
