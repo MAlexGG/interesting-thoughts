@@ -13,13 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('favorites', function (Blueprint $table) {
-            $table->id();
+        Schema::create('thought_user', function (Blueprint $table) {
             $table->unsignedBigInteger('thought_id');
-            $table->unsignedBigInteger('user_id');
             $table->foreign('thought_id')->references('id')->on('thoughts')->onDelete('cascade');
-            $table->timestamps();
-        });
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+        }); 
     }
 
     /**
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('favorites');
+        Schema::dropIfExists('thought_user');
     }
 };

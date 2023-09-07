@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Thought;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
@@ -150,5 +151,30 @@ class ThoughtController extends Controller
     {
         $thoughts = Thought::searchByAuthor($request->search);
         return view('/thoughts/search', compact('thoughts'));
+    }
+
+    public function getFavorites()
+    {
+        $thoughts = Thought::with('favorites')->get();
+        return view('/thoughts/favorites', compact('thoughts'));
+    }
+
+
+    public function isFavorite($id)
+    {
+        $user = Auth::user();
+        $thought = Thought::find($id);
+        $thought->favorites()->attach($user);
+
+        return redirect()->route('favs');
+    }
+
+    public function isNotFavorite($id)
+    {
+        $user = Auth::user();
+        $thought = Thought::find($id);
+        $thought->favorites()->detach($user);
+
+        return redirect()->route('thoughts');
     }
 }

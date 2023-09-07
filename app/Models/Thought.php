@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
-use App\Models\Favorite;
 
 class Thought extends Model
 {
@@ -28,9 +27,8 @@ class Thought extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function favorites()
-    {
-        return $this->hasMany(Favorite::class);
+    public function favorites(){
+        return $this->belongsToMany(User::class);
     }
 
     static function orderByDesc()

@@ -8,7 +8,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Thought;
-use App\Models\Favorite;
 
 class User extends Authenticatable
 {
@@ -49,8 +48,8 @@ class User extends Authenticatable
         return $this->hasMany(Thought::class);
     }
 
-    public function favorites()
-    {
-        return $this->hasMany(Favorite::class);
+    //Relación de Favoritos???
+    public function favorites(){
+        return $this->belongsToMany(Thought::class, 'thought_user');
     }
 }

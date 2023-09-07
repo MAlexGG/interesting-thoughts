@@ -57,8 +57,8 @@
                                     <img src="{{ asset('img/heart_stroke.svg') }}" alt="not-favorite" class='img-favorite'>
                                 </button>
                             </a>
-                        @elseif (Auth::user() && $thought->favorites->contains('user_id', Auth::user()->id))
-                            <form action="/thoughts/{{ $thought->id }}/favorites" method="POST">
+                        @elseif (Auth::user() && count($thought->favorites) >= 1)
+                            <form action="{{ route('notFav', ['id' => $thought->id]) }}" method="POST">
                                 @method('delete')
                                 @csrf
                                 <button type="submit" class="btn btn-outline-danger">
@@ -66,13 +66,13 @@
                                 </button>
                             </form>
                         @else
-                            <form action="/thoughts/{{ $thought->id }}/favorites" method="POST">
+                            <form action="{{ route('fav', ['id' => $thought->id]) }}" method="POST">
                                 @csrf
                                 <button type="submit" class="btn btn-outline-danger">
                                     <img src="{{ asset('img/heart_stroke.svg') }}" alt="not-favorite" class='img-favorite'>
                                 </button>
                             </form>
-                        @endif
+                        @endif 
                     </div>
                 </div>
             @endforeach

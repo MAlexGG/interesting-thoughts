@@ -112,4 +112,21 @@ class ThoughtTest extends TestCase
         $this->assertEquals($thoughts->count(), 1);
         $this->assertEquals($thoughts[0]->author, 'Alex');
     }
+
+    /* public function test_can_add_favorites_thoughts()
+    {
+        $this->withoutExceptionHandling();
+
+        $user = User::factory()->create();
+        $this->actingAs($user);
+
+        $thought = Thought::factory()->create([
+            'id' => 1,
+            'author' => 'Alex'
+        ]);
+
+        $favorite = Thought::addFavorite($thought->id);
+
+        
+    } */
 }
