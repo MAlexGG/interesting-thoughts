@@ -2,9 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Thought extends Model
 {
@@ -41,5 +43,12 @@ class Thought extends Model
     {
         $thought = Thought::where('author', 'like', '%' . $search . '%')->orderBy('id', 'DESC')->get();
         return $thought;
+    }
+
+    static function getFavoritesByUserId($id)
+    {
+        $thoughtsId = DB::table('thought_user')->select('thought_id')->where('user_id', $id)->get()->pluck('thought_id')->toArray();
+        $thoughts = Thought::whereIn('id', $thoughtsId)->get();
+        return $thoughts;
     }
 }
