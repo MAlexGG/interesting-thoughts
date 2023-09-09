@@ -57,7 +57,7 @@
                                     <img src="{{ asset('img/heart_stroke.svg') }}" alt="not-favorite" class='img-favorite'>
                                 </button>
                             </a>
-                        @elseif (Auth::user() && count($thought->favorites) >= 1)
+                        @elseif (Auth::user() && $thought->favorites()->where('user_id', Auth::user()->id)->exists())
                             <form action="{{ route('notFav', ['id' => $thought->id]) }}" method="POST">
                                 @method('delete')
                                 @csrf

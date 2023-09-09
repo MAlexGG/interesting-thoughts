@@ -45,10 +45,14 @@ class Thought extends Model
         return $thought;
     }
 
-    static function getFavoritesByUserId($id)
+    /**
+     * Para que el método devuelva directamente los thoughts del usuario registrado que existan en la tabla.
+     */
+    
+    /* static function getFavoritesByUserId($id)
     {
         $thoughtsId = DB::table('thought_user')->select('thought_id')->where('user_id', $id)->get()->pluck('thought_id')->toArray();
         $thoughts = Thought::whereIn('id', $thoughtsId)->get();
         return $thoughts;
-    }
+    } */
 }

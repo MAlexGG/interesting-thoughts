@@ -18,6 +18,7 @@ class ThoughtController extends Controller
      */
     public function index()
     {
+        $user = Auth::user();
         $thoughts = Thought::orderByDesc();
         return view('/thoughts/home', compact('thoughts'));
     }
@@ -153,13 +154,27 @@ class ThoughtController extends Controller
         return view('/thoughts/search', compact('thoughts'));
     }
 
+    /**
+     * Devolviendo todos los thoughts y poniendo la condición en la vista
+     */
+
     public function getFavorites()
+    {
+        $thoughts = Thought::all();
+        return view('/thoughts/favorites', compact('thoughts'));
+    }
+
+    /**
+     * Devolviendo los thoughts precisos desde el modelo
+     */
+
+    /* public function getFavorites()
     {
         $user = Auth::user();
         $thoughts = Thought::getFavoritesByUserId($user->id);
 
         return view('/thoughts/favorites', compact('thoughts'));
-    }
+    } */
 
 
     public function isFavorite($id)
